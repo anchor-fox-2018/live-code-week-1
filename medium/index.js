@@ -3,8 +3,8 @@ function snakeLadderSorting(arr) {
   let all = arr.join(',').split(',');
   let size = arr.length;
   let sizeInside = Math.round(all.length / size)
-  let sorted = all.sort(function(a, b) {return a-b});
   let result = []
+  let sorted = all.sort(function(a, b) {return a-b});
   let count = 0;
     for (var i = 0; i < size; i++) {
       result.splice(0,0,[]);
