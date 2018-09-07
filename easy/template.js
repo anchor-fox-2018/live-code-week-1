@@ -18,6 +18,23 @@ function generateCardInHand() {
     res = res + CARDNUMBER[diceRoll(0, 12)];
     cardResult.push(res);
   }
-console.log(cardResult);
+  // check for pair
+  let uniqueCount = [];
+  let pairCount = {};
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < cardResult[i].length; j++) {
+      uniqueCount.push(cardResult[i][j]);
+    }
+  }
+  uniqueCount.forEach(function (i) { pairCount[i] = (pairCount[i] || 0) + 1; });
+  //console.log(pairCount);
+  var result = 0;
+  for (var i in pairCount) {
+    if (pairCount[i]>=2) {
+      return cardResult;
+    }
+  }
+  generateCardInHand();
 }
-generateCardInHand();
+
+console.log(generateCardInHand());
